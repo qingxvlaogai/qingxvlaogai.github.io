@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>基地</title>
+  <style>
+    :root{
+      --bg:#0b0c10; --fg:#e8e8e8; --muted:#a8a8a8; --line:#2a2c35;
+    }
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC","Noto Sans SC", Arial;
+      letter-spacing: .2px;
+    }
+    a{ color:var(--fg); text-decoration:none; border-bottom:1px solid var(--line); }
+    a:hover{ border-bottom-color: var(--fg); }
+    .wrap{ max-width: 880px; margin: 0 auto; padding: 64px 20px; }
+    .tag{ color:var(--muted); font-size: 14px; }
+    h1{ font-size: 28px; margin: 10px 0 22px; font-weight: 650; }
+    .line{ height:1px; background:var(--line); margin: 28px 0; }
+    .grid{
+      display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .card{
+      border:1px solid var(--line); border-radius:14px;
+      padding: 16px 16px 14px;
+      background: rgba(255,255,255,0.02);
+    }
+    .card h2{ font-size: 16px; margin:0 0 10px; font-weight: 600; }
+    .card p{ margin:0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+    footer{ margin-top: 44px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 720px){ .grid{ grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="tag mono">STATUS: ONLINE / WEATHER: QUIET</div>
+    <h1>基地入口（楼 / 岛）</h1>
+
+    <div class="line"></div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>一层：大厅 / 公告栏</h2>
+        <p>一句话说明“这里是什么”（也可以不解释）。</p>
+        <p style="margin-top:10px"><a href="hall.html">进入</a></p>
+      </section>
+
+      <section class="card">
+        <h2>二层：档案室 / 小说</h2>
+        <p>按“状态/主题/空间”归档，而不是按时间线。</p>
+        <p style="margin-top:10px"><a href="archive.html">进入</a></p>
+      </section>
+
+      <section class="card">
+        <h2>岛外：碎片 / 旁注</h2>
+        <p>残段、注释、无处安放的文字。让基地“有人住”。</p>
+        <p style="margin-top:10px"><a href="fragments.html">进入</a></p>
+      </section>
+
+      <section class="card">
+        <h2>楼梯间：索引 / 地图</h2>
+        <p>给熟人用的导航。可以做得很隐蔽。</p>
+        <p style="margin-top:10px"><a href="map.html">进入</a></p>
+      </section>
+    </div>
+
+    <footer class="mono">
+      © <span id="y"></span> / NO FEED / NO RECOMMENDATION / NO PERFORMANCE
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
