@@ -29,3 +29,11 @@
   .page-arrow.prev{ left: 6px; }
   .page-arrow.next{ right: 6px; }
 }
+
+/* ===== 地图页 ===== */
+.map-image{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
