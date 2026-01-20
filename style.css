@@ -1,4 +1,96 @@
-/* ===== 翻页箭头（非热区，常态可见） ===== */
+:root{
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #666666;
+  --line: #dddddd;
+}
+
+/* 基础 */
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-serif, "Songti SC", "Noto Serif SC", serif;
+  line-height: 1.85;
+}
+
+/* 链接 */
+a{
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+a:hover{ border-bottom-color: var(--fg); }
+
+/* 页面主体 */
+.wrap{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 96px;
+}
+
+/* 标题 */
+h1{
+  font-size: 20px;
+  font-weight: normal;
+  margin: 40px 0 48px;
+}
+
+h2{
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0 0 8px;
+}
+
+/* 辅助 */
+.muted{ color: var(--muted); }
+
+.line{
+  height: 1px;
+  background: var(--line);
+  margin: 24px 0;
+}
+
+/* 首页网格 */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+/* 首页卡片 */
+.card{
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.card p{
+  margin: 0 0 6px;
+  color: var(--muted);
+}
+
+.card a{ border-bottom: none; }
+
+/* 左上角：回改地（小说页用） */
+.back-home{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  font-size: 14px;
+  color: var(--muted);
+  border-bottom: none;
+  z-index: 1000;
+}
+
+.back-home:hover{ color: var(--fg); }
+
+/* 翻页箭头（非热区，常态可见） */
 .page-arrow{
   position: fixed;
   top: 50%;
@@ -11,26 +103,17 @@
   border: none;
 }
 
-.page-arrow:hover{
-  color: var(--fg);
-}
+.page-arrow:hover{ color: var(--fg); }
 
-/* 左右位置 */
-.page-arrow.prev{
-  left: 12px;
-}
+.page-arrow.prev{ left: 12px; }
+.page-arrow.next{ right: 12px; }
 
-.page-arrow.next{
-  right: 12px;
-}
-
-/* 手机端稍微靠里一点 */
 @media (max-width: 600px){
   .page-arrow.prev{ left: 6px; }
   .page-arrow.next{ right: 6px; }
 }
 
-/* ===== 地图页 ===== */
+/* 地图图片 */
 .map-image{
   width: 100%;
   height: auto;
