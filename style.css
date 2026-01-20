@@ -137,3 +137,24 @@ main p{
 .pager a:hover{
   color: var(--fg);
 }
+
+.page-zone::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--muted);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.page-zone.left::after{
+  content: "←";
+  left: 12px;
+}
+
+.page-zone.right::after{
+  content: "→";
+  right: 12px;
+}
