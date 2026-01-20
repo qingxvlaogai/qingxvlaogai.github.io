@@ -5,7 +5,7 @@
   --line: #dddddd;
 }
 
-/* 基础 */
+/* ===== 基础 ===== */
 *{
   box-sizing: border-box;
 }
@@ -18,7 +18,7 @@ body{
   line-height: 1.85;
 }
 
-/* 链接 */
+/* ===== 链接 ===== */
 a{
   color: var(--fg);
   text-decoration: none;
@@ -29,59 +29,72 @@ a:hover{
   border-bottom-color: var(--fg);
 }
 
-/* 页面主体 */
+/* ===== 页面主体 ===== */
 .wrap{
   max-width: 720px;
   margin: 0 auto;
-  padding: 32px 20px 96px;
+  padding: 64px 20px 96px;
 }
 
-/* 顶部导航（翻页 / 返回） */
-.nav{
-  position: sticky;
-  top: 0;
-  background: linear-gradient(var(--bg) 85%, transparent);
-  padding: 14px 20px;
+/* ===== 左上角：回改地 ===== */
+.back-home{
+  position: fixed;
+  top: 16px;
+  left: 16px;
   font-size: 14px;
-  z-index: 10;
-}
-
-.nav a{
   color: var(--muted);
-  margin-right: 20px;
   border-bottom: none;
+  z-index: 1000;
 }
 
-.nav a:hover{
+.back-home:hover{
   color: var(--fg);
 }
 
-/* 标题 */
-h1{
-  font-size: 20px;
-  font-weight: normal;
-  margin: 40px 0 48px;
+/* ===== 小说正文 ===== */
+main p{
+  margin: 0 0 1.4em;
 }
 
-h2{
-  font-size: 18px;
-  font-weight: normal;
-  margin: 0 0 8px;
+/* ===== 翻页点击区域（书感核心） ===== */
+.page-zone{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 10;
 }
 
-/* 辅助文字 */
-.muted{
+.page-zone.left{
+  left: 0;
+}
+
+.page-zone.right{
+  right: 0;
+}
+
+/* 提示箭头（不抢眼） */
+.page-zone::after{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
   color: var(--muted);
+  opacity: 0.18;
+  pointer-events: none;
 }
 
-/* 分割线 */
-.line{
-  height: 1px;
-  background: var(--line);
-  margin: 24px 0;
+.page-zone.left::after{
+  content: "←";
+  left: 12px;
 }
 
-/* ===== 首页网格 ===== */
+.page-zone.right::after{
+  content: "→";
+  right: 12px;
+}
+
+/* ===== 首页（如果你用同一个 CSS） ===== */
 .grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -89,7 +102,6 @@ h2{
   margin-top: 32px;
 }
 
-/* 首页卡片 */
 .card{
   padding: 20px;
   border: 1px solid var(--line);
@@ -105,71 +117,3 @@ h2{
 .card a{
   border-bottom: none;
 }
-
-/* ===== 1 ===== */
-.card.map{
-  opacity: 0.5;
-  border-style: dashed;
-}
-
-.card.map:hover{
-  opacity: 0.8;
-}
-
-/* ===== 小说正文 ===== */
-main p{
-  margin: 0 0 1.4em;
-}
-
-/* ===== 小说上下翻页 ===== */
-.pager{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 72px;
-  font-size: 14px;
-}
-
-.pager a{
-  color: var(--muted);
-  border-bottom: none;
-}
-
-.pager a:hover{
-  color: var(--fg);
-}
-
-.page-zone::after{
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: var(--muted);
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.page-zone.left::after{
-  content: "←";
-  left: 12px;
-}
-
-.page-zone.right::after{
-  content: "→";
-  right: 12px;
-}
-
-.back-home{
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  font-size: 14px;
-  color: var(--muted);
-  text-decoration: none;
-  z-index: 1000;
-}
-
-.back-home:hover{
-  color: var(--fg);
-}
-
