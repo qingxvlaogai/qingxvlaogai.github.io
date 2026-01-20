@@ -1,129 +1,31 @@
-:root{
-  --bg: #ffffff;
-  --fg: #111111;
-  --muted: #666666;
-  --line: #dddddd;
-}
-
-/* ===== 基础 ===== */
-*{
-  box-sizing: border-box;
-}
-
-body{
-  margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: ui-serif, "Songti SC", "Noto Serif SC", serif;
-  line-height: 1.85;
-}
-
-/* ===== 链接 ===== */
-a{
-  color: var(--fg);
-  text-decoration: none;
-  border-bottom: 1px solid var(--line);
-}
-
-a:hover{
-  border-bottom-color: var(--fg);
-}
-
-/* ===== 页面主体 ===== */
-.wrap{
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 64px 20px 96px;
-}
-
-/* ===== 左上角：回改地 ===== */
-.back-home{
+/* ===== 翻页箭头（非热区，常态可见） ===== */
+.page-arrow{
   position: fixed;
-  top: 16px;
-  left: 16px;
-  font-size: 14px;
-  color: var(--muted);
-  border-bottom: none;
-  z-index: 1000;
-}
-
-.back-home:hover{
-  color: var(--fg);
-}
-
-/* ===== 小说正文 ===== */
-main p{
-  margin: 0 0 1.4em;
-}
-
-/* ===== 翻页点击区域（书感核心） ===== */
-.page-zone{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  z-index: 10;
-}
-
-.page-zone.left{
-  left: 0;
-}
-
-.page-zone.right{
-  right: 0;
-}
-
-/* 提示箭头（不抢眼） */
-.page-zone::after{
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 22px;
   color: var(--muted);
-  opacity: 0.18;
-  pointer-events: none;
+  text-decoration: none;
+  z-index: 900;
+  padding: 8px;
+  border: none;
 }
 
-.page-zone.left::after{
-  content: "←";
+.page-arrow:hover{
+  color: var(--fg);
+}
+
+/* 左右位置 */
+.page-arrow.prev{
   left: 12px;
 }
 
-.page-zone.right::after{
-  content: "→";
+.page-arrow.next{
   right: 12px;
 }
 
-/* ===== 首页（如果你用同一个 CSS） ===== */
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 32px;
+/* 手机端稍微靠里一点 */
+@media (max-width: 600px){
+  .page-arrow.prev{ left: 6px; }
+  .page-arrow.next{ right: 6px; }
 }
-
-.card{
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #ffffff;
-}
-
-.card p{
-  margin: 0 0 6px;
-  color: var(--muted);
-}
-
-.card a{
-  border-bottom: none;
-}
-
-.page-zone::after{
-  /* 你原来的那些保持 */
-  opacity: 0.55;     /* 常态可见 */
-}
-
-.page-zone:hover::after{
-  opacity: 0.9;      /* 桌面端更明确 */
-}
-
