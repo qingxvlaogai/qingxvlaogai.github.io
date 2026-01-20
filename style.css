@@ -117,3 +117,13 @@ main p{
 .card a{
   border-bottom: none;
 }
+
+.page-zone::after{
+  /* 你原来的那些保持 */
+  opacity: 0.55;     /* 常态可见 */
+}
+
+.page-zone:hover::after{
+  opacity: 0.9;      /* 桌面端更明确 */
+}
+
