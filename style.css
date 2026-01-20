@@ -158,3 +158,18 @@ main p{
   content: "→";
   right: 12px;
 }
+
+.back-home{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.back-home:hover{
+  color: var(--fg);
+}
+
