@@ -7,17 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-
-<a href="index.html" class="back-home">← 回改地</a>
-
-<a class="page-zone left" href="#" id="prevPage" aria-label="上一页"></a>
-<a class="page-zone right" href="#" id="nextPage" aria-label="下一页"></a>
-
-<script src="pager.js" defer></script>
-
-
-
   <main class="wrap">
 
 
@@ -150,10 +139,13 @@
 
 
   </main>
-<div class="nav nav-bottom">
-  <a href="archive.html">←</a>
-  <a href="novel-002.html">→</a>
-</div>
+
+  <!-- 左右翻页箭头（常态） -->
+  <a class="page-arrow prev" id="prevPage" aria-label="上一页">←</a>
+  <a class="page-arrow next" id="nextPage" aria-label="下一页">→</a>
+
+  <!-- 翻页逻辑 -->
+  <script src="pager.js"></script>
 
 </body>
 </html>
