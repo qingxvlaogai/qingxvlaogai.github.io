@@ -5,7 +5,7 @@
   --line: #dddddd;
 }
 
-/* 基础 */
+/* ===== 基础 ===== */
 *{ box-sizing: border-box; }
 
 body{
@@ -14,38 +14,46 @@ body{
   color: var(--fg);
   font-family: ui-serif, "Songti SC", "Noto Serif SC", serif;
   line-height: 1.85;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* 链接 */
+/* ===== 链接 ===== */
 a{
   color: var(--fg);
   text-decoration: none;
   border-bottom: 1px solid var(--line);
 }
-
 a:hover{ border-bottom-color: var(--fg); }
 
-/* 页面主体 */
+/* ===== 页面主体（小说版心 + 给返回/箭头留安全区） ===== */
 .wrap{
-  max-width: 720px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 32px 20px 96px;
+  padding: 72px 56px 112px;
 }
 
-/* 标题 */
+/* ===== 标题 ===== */
 h1{
   font-size: 20px;
   font-weight: normal;
-  margin: 40px 0 48px;
+  margin: 40px 0 40px;
 }
-
 h2{
   font-size: 18px;
   font-weight: normal;
   margin: 0 0 8px;
 }
 
-/* 辅助 */
+/* ===== 正文排版（像书） ===== */
+main p{
+  margin: 0 0 1.45em;
+  font-size: 16.5px;
+  line-height: 1.95;
+  letter-spacing: 0.2px;
+}
+
+/* ===== 辅助 ===== */
 .muted{ color: var(--muted); }
 
 .line{
@@ -54,7 +62,7 @@ h2{
   margin: 24px 0;
 }
 
-/* 首页网格 */
+/* ===== 首页网格 ===== */
 .grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -69,28 +77,35 @@ h2{
   border-radius: 6px;
   background: #ffffff;
 }
-
 .card p{
   margin: 0 0 6px;
   color: var(--muted);
 }
-
 .card a{ border-bottom: none; }
 
-/* 左上角：回改地（小说页用） */
+/* ===== 顶部状态行（index 用） ===== */
+.tag{
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* ===== 左上角：回改地 ===== */
 .back-home{
   position: fixed;
-  top: 16px;
-  left: 16px;
+  top: 20px;
+  left: 20px;
   font-size: 14px;
   color: var(--muted);
   border-bottom: none;
   z-index: 1000;
 }
-
 .back-home:hover{ color: var(--fg); }
 
-/* 翻页箭头（非热区，常态可见） */
+/* ===== 翻页箭头（常态可见，非热区） ===== */
 .page-arrow{
   position: fixed;
   top: 50%;
@@ -101,34 +116,39 @@ h2{
   z-index: 900;
   padding: 8px;
   border: none;
+  user-select: none;
 }
-
 .page-arrow:hover{ color: var(--fg); }
 
 .page-arrow.prev{ left: 12px; }
 .page-arrow.next{ right: 12px; }
 
+/* ===== 手机端：更像小说 + 不遮字 ===== */
 @media (max-width: 600px){
-  .page-arrow.prev{ left: 6px; }
-  .page-arrow.next{ right: 6px; }
+  .wrap{
+    max-width: 36em;
+    padding: 78px 64px 120px;
+  }
+
+  main p{
+    font-size: 18px;
+    line-height: 2.05;
+    letter-spacing: 0.2px;
+  }
+
+  .page-arrow.prev{ left: 10px; }
+  .page-arrow.next{ right: 10px; }
+
+  .back-home{
+    top: 18px;
+    left: 18px;
+  }
 }
 
-/* 地图图片 */
+/* ===== 地图图片 ===== */
 .map-image{
   width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
-/* 顶部状态行（index 用） */
-.tag{
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-.mono{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-}
-
-
